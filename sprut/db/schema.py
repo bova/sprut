@@ -17,6 +17,15 @@ class SpServer(Base):
     ora_pass = Column(String(128))
     instances = relationship('SpOraInstance')
 
+    def __init__(self, hostname, ip, ora_user, ora_pass):
+        self.hostname = hostname
+        self.ip = ip
+        self.ora_user = ora_user
+        self.ora_pass = ora_pass
+
+    def __repr__(self):
+        pass
+
 
 class SpOraInstance(Base):
     __tablename__ = 'sp_ora_instance'

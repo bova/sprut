@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Sprut</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script  src="/static/lib/angular.js"></script>
+    <script src="/static/lib/angular-resource.js"></script>
+    <script src="/static/lib/angular-route.js"></script>
+{% endblock %}
+</head>
+<body>
+{% block body %}
+    <nav class="navbar navbar-default" role="navigation">
+        <a class="navbar-brand" href="#">Sprut</a>
+    </nav>
+    <div class="container">
+    {% block container%}
+    {% endblock %}
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% from "server/_formhelpers.html" import render_field %}
+
+{% block container%}
+	<form class="form-horizontal" method="post" action="{{ url_for('add_server') }}">
+		{{ render_field(form.hostname, '') }}
+		{{ render_field(form.ip, '') }}
+		{{ render_field(form.ora_user, '') }}
+		{{ render_field(form.ora_pass, '') }}
+		<input class="btn" type=submit value=Add>
+	</form>
+{% endblock %}

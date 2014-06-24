@@ -1,2 +1,5 @@
 .idea
 *.pyc
+sprut/ui/static/lib
+sprut/ui/static/fonts
+sprut/ui/static/css

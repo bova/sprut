@@ -1,0 +1,31 @@
+<a class="btn btn-primary" href="/server/add">
+    <span class="glyphicon glyphicon-plus"></span> Add</a>
+
+<div ng-controller="SprutServerListCtrl">
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Hostname</th>
+            <th>IP</th>
+            <th>ORA_User</th>
+            <th>ORA_Pass</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="server in servers">
+            <td>{{server.id}}</td>
+            <td>{{server.hostname}}</td>
+            <td>{{server.ip}}</td>
+            <td>{{server.ora_user}}</td>
+            <td>{{server.ora_pass}}</td>
+            <td>
+                <button class="btn btn-small" ng-click="delete(server.id)">
+                    <span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>

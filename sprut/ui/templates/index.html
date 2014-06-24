@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block head %}
+    {{ super() }}
+    <script src="static/js/app.js"></script>
+    <script src="static/js/services.js"></script>
+    <script src="static/js/controllers.js"></script>
+{% endblock %}
+{% block body %}
+{{ super() }}
+{% endblock %}
+{% block container %}
+    <div ng-app="sprutApp">
+      <div class="view-container">
+        <div ng-view class="view-frame"></div>
+      </div>
+    </div>
+{% endblock %}
