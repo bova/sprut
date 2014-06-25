@@ -32,10 +32,13 @@ class SpOraInstance(Base):
     id = Column(Integer, Sequence('sp_ora_instance_id_seq'), primary_key=True)
     sid = Column(String(50))
     server_id = Column(Integer, ForeignKey('sp_server.id', ondelete='CASCADE'))
+    command = Column(String(128))
 
 
-    def __init__(self, sid):
+    def __init__(self, sid, server_id, command=None):
         self.sid = sid
+        self.server_id = server_id
+        self.command = command
 
     def __repr__(self):
         pass

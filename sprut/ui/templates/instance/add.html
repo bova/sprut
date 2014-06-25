@@ -1,0 +1,14 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "layout.html" %}
+
+{% block body %}
+	{{ super() }}
+{% endblock %}
+
+{% block container %}
+	<form role="form" method="post" action="{{ url_for('add_instance') }}">
+		{{ render_field(form.sid) }}
+		{{ render_field(form.server_id) }}
+		<input class="btn" type=submit value=Add>
+	</form>
+{% endblock %}

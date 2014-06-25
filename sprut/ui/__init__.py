@@ -5,7 +5,7 @@ import flask.ext.restless
 
 from sprut.db.schema import SpServer, SpOraInstance
 from sprut.db.conn import Session
-from form import ServerForm
+from form import ServerForm, InstanceForm
 
 
 app = Flask(__name__)
@@ -30,5 +30,21 @@ def add_server():
         return redirect(url_for('index'))
     else:
         return render_template('/server/add.html', form=form)
+
+# @app.route('/instance', methods=['GET'])
+# def instance():
+#     pass
+
+@app.route('/instance/add', methods=['GET', 'POST'])
+def add_instance():
+    form = InstanceForm(request.form)
+    if request.method == 'POST' and form.validate():
+        instance = SpOraInstance(form.sid.data, form.server_id.data)
+        db.add(instance)
+        db.commit()
+        return redirect('/#/instance')
+    else:
+        return render_template('/instance/add.html', form=form)
+
 if __name__ == '__main__':
     app.run('0.0.0.0', debug=True)
