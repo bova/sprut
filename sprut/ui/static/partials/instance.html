@@ -9,17 +9,26 @@
                     <button class="btn btn-small" ng-click="stop(instances[$index+0].id)">
                         <span class="glyphicon glyphicon-stop"></span>
                     </button>
+                    <button class="btn btn-small" ng-click="start(instances[$index+0].id)">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </button>
                 </div>
                 <div class="col-md-4" ng-show="instances[$index+1]">
                     {{ instances[$index+1].sid }}
-                    <button class="btn btn-small" ng-click="stop(instances[$index+0].id)">
+                    <button class="btn btn-small" ng-click="stop(instances[$index+1].id)">
                         <span class="glyphicon glyphicon-stop"></span>
+                    </button>
+                    <button class="btn btn-small" ng-click="start(instances[$index+1].id)">
+                        <span class="glyphicon glyphicon-play"></span>
                     </button>
                 </div>
                 <div class="col-md-4" ng-show="instances[$index+2]">
                     {{ instances[$index+2].sid }}
-                    <button class="btn btn-small" ng-click="stop(instances[$index+0].id)">
+                    <button class="btn btn-small" ng-click="stop(instances[$index+2].id)">
                         <span class="glyphicon glyphicon-stop"></span>
+                    </button>
+                    <button class="btn btn-small" ng-click="start(instances[$index+2].id)">
+                        <span class="glyphicon glyphicon-play"></span>
                     </button>
                 </div>
             </div>

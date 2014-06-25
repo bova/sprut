@@ -44,4 +44,10 @@ sprutControllers.controller('SprutInstanceListCtrl', ['$resource', '$scope', '$l
             SpInstance.update({id: instance_id, command: 'SHUTDOWN IMMEDIATE'});
             $scope.showTable($scope.page_number);
         }
+
+        $scope.start = function(instance_id) {
+            SpInstance.update({id: instance_id, command: 'STARTUP'});
+            $scope.showTable($scope.page_number);
+        }
+
 }]);

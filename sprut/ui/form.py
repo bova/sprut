@@ -15,6 +15,5 @@ class ServerForm(Form):
 class InstanceForm(Form):
     servers = db.query(SpServer).all()
     choices = [(s.id, s.hostname) for s in servers]
-    print "Choices: %s" % choices
     sid = TextField('SID', [validators.Required()])
     server_id = SelectField('Server ID', choices=choices, coerce=int)

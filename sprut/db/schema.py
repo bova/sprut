@@ -32,6 +32,7 @@ class SpOraInstance(Base):
     id = Column(Integer, Sequence('sp_ora_instance_id_seq'), primary_key=True)
     sid = Column(String(50))
     server_id = Column(Integer, ForeignKey('sp_server.id', ondelete='CASCADE'))
+    server = relationship("SpServer")
     command = Column(String(128))
 
 
