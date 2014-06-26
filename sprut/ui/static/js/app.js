@@ -7,7 +7,8 @@ var sprutApp = angular.module('sprutApp', [
     'sprutServices',
     'ngResource',
     'ngRoute',
-    'sprutControllers'
+    'sprutControllers',
+    'sprutDirectives'
 ]);
 
 sprutApp.config(['$routeProvider',

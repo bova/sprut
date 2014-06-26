@@ -38,7 +38,7 @@ sprutControllers.controller('SprutInstanceListCtrl', ['$resource', '$scope', '$l
 
         var q = {order_by: [{field: 'id', direction: 'desc'}]};
         $scope.instances = SpInstance.query({page: 1, q: q});
-        repeat = $interval($scope.showTable, 4000);
+        repeat = $interval($scope.showTable, 140000);//140sec
 
         $scope.stop = function(instance_id) {
             SpInstance.update({id: instance_id, command: 'SHUTDOWN IMMEDIATE'});

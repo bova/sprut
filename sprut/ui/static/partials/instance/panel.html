@@ -1,0 +1,14 @@
+<div class="panel panel-default col-md-4" ng-show="instances[$index+0]">
+                    <div class="row">
+                        <span class="col-sm-12"><b>Hostname:</b> {{ instances[$index+x].server.hostname }}</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-12"><b>DB:</b> {{ instances[$index+x].sid }}</span>
+                    </div>
+                    <button class="btn btn-xs" hello="{{ x }}" ng-click="stopInstance({instance_id: instances[$index+x].id})">
+                        <span class="glyphicon glyphicon-stop"></span>
+                    </button>
+                    <button class="btn btn-xs" ng-click="startInstance({instance_id: instances[$index+x].id})">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </button>
+</div>
