@@ -8,13 +8,22 @@ sprutDirectives.directive('instancePanel', function() {
     return {
 //        scope: true,//Use parent scope
         scope: { // isolated scope
-            x: '=',
-            instances: '=',
+//            x: '=',
+            instance: '=',
             stopInstance: '&',
             startInstance: '&'
         },
         link: function(scope, elem, attrs) {
-            var x = attrs.x;
+            scope.getStatusColor = function() {
+                console.log(scope.instance.id);
+                if (scope.instance.status == 'OPEN') {
+                    return 'green';
+                } else if (scope.instance.status == 'CLOSED') {
+                    return 'red';
+                } else {
+                    return 'grey';
+                }
+            };
         },
         templateUrl: 'static/partials/instance/panel.html'
     };

@@ -34,12 +34,13 @@ class SpOraInstance(Base):
     server_id = Column(Integer, ForeignKey('sp_server.id', ondelete='CASCADE'))
     server = relationship("SpServer")
     command = Column(String(128))
+    status = Column(String(128))
 
-
-    def __init__(self, sid, server_id, command=None):
+    def __init__(self, sid, server_id, command=None, status=None):
         self.sid = sid
         self.server_id = server_id
         self.command = command
+        self.status = status
 
     def __repr__(self):
         pass

@@ -2,7 +2,7 @@ __author__ = 'bova'
 
 from sprut.db.conn import Session
 from sprut.db.schema import SpOraInstance
-from remoting import RemoteCommand
+from sprut.remoting import RemoteCommand
 import time
 
 

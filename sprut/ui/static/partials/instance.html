@@ -2,13 +2,13 @@
     <span class="glyphicon glyphicon-plus"></span> Add</a>
 <div ng-controller="SprutInstanceListCtrl">
     <div  ng-repeat="instance in instances">
-        <span ng-switch="" on="$index%3">
+        <!--<span ng-switch="" on="$index%3">-->
             <!--tree panels per row-->
-            <div class="row" ng-switch-when="0">
-                <div instance-panel x="0" instances="instances" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>
-                <div instance-panel x="1" instances="instances" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>
-                <div instance-panel x="2" instances="instances" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>
-            </div>
-        </span>
+            <!--<div class="row" ng-if="$index%3">-->
+                <div  instance-panel instance="instance" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>
+                <!--<div  instance-panel x="1" instance="instance" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>-->
+                <!--<div  instance-panel x="2" instance="instance" stop-instance="stop(instance_id)" start-instance="start(instance_id)"></div>-->
+            <!--</div>-->
+        <!--</span>-->
     </div>
 </div>

@@ -16,15 +16,31 @@ class RemoteCommand(object):
         self.client.set_missing_host_key_policy(paramiko.client.AutoAddPolicy())
 
     def connect(self):
-        self.client.connect(self.server.hostname,
+        self.client.connect(self.server.ip,
                        username=self.server.ora_user,
                        password=self.server.ora_pass)
-        stdin, stdout, stderr = self.client.exec_command('. /home/oracle/%s.env;sqlplus / as sysdba<<EOF\n'
+
+    def execute(self):
+        self.cmd = '. /home/oracle/%s.env;sqlplus / as sysdba<<EOF\n'
         '%s;\n'
-        'EOF' % (self.instance.sid, self.command))
+        'EOF' % (self.instance.sid, self.command)
+        stdin, stdout, stderr = self.client.exec_command(self.cmd)
 
     def run(self):
         self.connect()
+        self.execute()
+
+
+class OraStatusCommand(RemoteCommand):
+    def __init__(self, instance):
+        self.result = ''
+        super(OraStatusCommand, self).__init__(instance)
+
+    def execute(self):
+        self.cmd = 'ps -ef|grep pmon_%s|grep -v grep|wc -l' % self.instance.sid
+        stdin, stdout, stderr = self.client.exec_command(self.cmd)
+        pmon_process_count = int(stdout.readlines()[0].lstrip('\n'))
+        self.result = pmon_process_count
 
 if __name__ == '__main__':
     class Server(object):
@@ -45,6 +61,7 @@ if __name__ == '__main__':
     instance.command = command1
 
     print "Start"
-    rmt_cmd = RemoteCommand(instance)
+    rmt_cmd = OraStatusCommand(instance)
     rmt_cmd.run()
+    print rmt_cmd.result
     print "Finish"

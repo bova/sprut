@@ -1,14 +1,15 @@
-<div class="panel panel-default col-md-4" ng-show="instances[$index+0]">
-                    <div class="row">
-                        <span class="col-sm-12"><b>Hostname:</b> {{ instances[$index+x].server.hostname }}</span>
-                    </div>
-                    <div class="row">
-                        <span class="col-sm-12"><b>DB:</b> {{ instances[$index+x].sid }}</span>
-                    </div>
-                    <button class="btn btn-xs" hello="{{ x }}" ng-click="stopInstance({instance_id: instances[$index+x].id})">
-                        <span class="glyphicon glyphicon-stop"></span>
-                    </button>
-                    <button class="btn btn-xs" ng-click="startInstance({instance_id: instances[$index+x].id})">
-                        <span class="glyphicon glyphicon-play"></span>
-                    </button>
+<div class="panel panel-default col-md-4" style="border-left-color: {{ getStatusColor() }}; border-left-width: 3px" ng-show="instance">
+    <div class="row">
+        <span class="col-sm-12"><b>Hostname:</b> {{ instance.server.hostname }}</span>
+    </div>
+    <div class="row">
+        <span class="col-sm-6"><b>DB:</b> {{ instance.sid }}</span>
+        <span class="col-sm-6"><b>Status:</b> {{ instance.status }}</span>
+    </div>
+    <button class="btn btn-xs" hello="{{ x }}" ng-click="stopInstance({instance_id: instance.id})">
+        <span class="glyphicon glyphicon-stop"></span>
+    </button>
+    <button class="btn btn-xs" ng-click="startInstance({instance_id: instance.id})">
+        <span class="glyphicon glyphicon-play"></span>
+    </button>
 </div>
