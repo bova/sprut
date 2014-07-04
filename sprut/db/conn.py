@@ -15,7 +15,7 @@ conf = SprutConfig()
 db_conn_string = 'sqlite:///%s' % conf.db.path
 
 # Set echo=True for DEBUG db interactions
-engine = create_engine(db_conn_string, echo=True)
+engine = create_engine(db_conn_string, echo=False)
 event.listen(engine, 'connect', on_connect)
 
 Session = sessionmaker(engine)

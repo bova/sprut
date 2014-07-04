@@ -21,9 +21,12 @@ class RemoteCommand(object):
                        password=self.server.ora_pass)
 
     def execute(self):
-        self.cmd = '. /home/oracle/%s.env;sqlplus / as sysdba<<EOF\n'
+        print 'Instance.sid: %s' % self.instance.sid
+        print 'Command: %s' % self.command
+        self.cmd = ('. /home/oracle/%s.env;sqlplus / as sysdba<<EOF\n'
         '%s;\n'
-        'EOF' % (self.instance.sid, self.command)
+        'EOF' % (self.instance.sid, self.command))
+        print self.cmd
         stdin, stdout, stderr = self.client.exec_command(self.cmd)
 
     def run(self):
